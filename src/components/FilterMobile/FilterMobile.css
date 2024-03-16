@@ -1,0 +1,36 @@
+.filter-container-mobile {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    position: fixed;
+    bottom: 0;
+    height: 8vh;
+    width: 100vw;
+    background-color: var(--bg-clr-gray);
+    z-index: 999;
+    box-shadow: 0 0 2px 0 rgb(148 150 159 / 30%);
+  }
+  
+  .filter-container-mobile > :is(.sort, .filter) {
+    display: flex;
+    flex: 1;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-800);
+    cursor: pointer;
+  }
+  
+  .filter-container-mobile .sort {
+    border-right: 1px solid var(--gray-300);
+  }
+  
+  .filter .filter-icon {
+    font-size: 12px;
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    .filter-container-mobile {
+      display: none;
+    }
+  }
