@@ -5,6 +5,7 @@ import {
     FILTER_BY_PRICE,
     FILTER_BY_RATING,
     SORT_BY,
+    FILTER_BY_SEARCH,
     FILTER_BY_CASH_ON_DELIVERY,
     FILTER_BY_FAST_DELIVERY,
     FILTER_BY_OUT_OF_STOCK,
@@ -66,9 +67,12 @@ import {
       case FILTER_BY_OUT_OF_STOCK: {
         return { ...state, includeOutOfStock: payload };
       }
+      case FILTER_BY_SEARCH:
+      return { ...state, search: payload };
       case CLEAR_ALL_FILTERS:
         return {
           ...state,
+          search: "",
           sortBy: "",
           categories: [],
           brands: [],

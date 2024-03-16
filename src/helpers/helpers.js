@@ -103,6 +103,28 @@ export const putCommasInPrice = price =>
       );
     };
     
+    export const getSearchedProducts = (products, state) => {
+      if (state.search !== "") {
+        let searchedProducts = [];
+        searchedProducts.push(
+          ...products.filter(product => {
+            return product.title.toLowerCase().includes(state.search.toLowerCase());
+          })
+        );
+        searchedProducts.push(
+          ...products.filter(product => {
+            return product.categoryName
+              .toLowerCase()
+              .includes(state.search.toLowerCase());
+          })
+        );
+        return searchedProducts;
+      }
+      return products;
+    };
+    export const getProductById = (products, productId) =>
+  products?.find(product => product._id === productId);
+
     export const getTotalAmount = cart => {
       return [...cart].reduce((acc, curr) => {
         let _priceAfterDiscount = priceAfterDiscount(

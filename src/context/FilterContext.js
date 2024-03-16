@@ -3,6 +3,7 @@ import { filterReducer } from "../reducers";
 import { useProduct } from "./ProductContext";
 
 const initialState = {
+  search:"",
   sortBy: "",
   categories: [],
   brands: [],

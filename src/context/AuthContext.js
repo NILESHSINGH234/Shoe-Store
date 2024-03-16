@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
         payload: getUserFromLocalStorage,
       });
     }
-  }, []);
+  }, [state.token]);
 
   const signupHandler = async (firstName, lastName, email, password) => {
     const toastId = toast.loading("Creating your account...");

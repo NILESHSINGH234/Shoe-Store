@@ -3,15 +3,18 @@ import "./ProductList.css";
 import { BsStarFill } from "react-icons/bs";
 import { useFilter } from "../../context/FilterContext";
 import { useProduct } from "../../context/ProductContext";
-import {
+/*import {
   getSortedProducts,
   getFilteredProducts,
   priceAfterDiscount,
   putCommasInPrice,
   getSearchedProducts,
-} from "../../helpers";
+} from "../../helpers";*/
+import { getSortedProducts,getFilteredProducts,priceAfterDiscount,putCommasInPrice } from "../../helpers";
+import { getSearchedProducts } from "../../helpers/helpers";
 import { useWishlistAndCart } from "../../context/WishlistAndCartContext";
-import { addToCartService, toggleFavorite } from "../../services";
+//import { addToCartService, toggleFavorite } from "../../services";
+import { toggleFavorite } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -25,10 +28,12 @@ export const ProductList = () => {
     state: { token },
   } = useAuth();
   const {
-    state: { wishlist, cart },
+    state: { wishlist },
     dispatch,
   } = useWishlistAndCart();
 
+  //const searchedProduct = getSearchedProducts(products, state);
+  //const sortedProducts = getSortedProducts(products, state);
   const searchedProduct = getSearchedProducts(products, state);
   const sortedProducts = getSortedProducts(searchedProduct, state);
   const filteredProducts = getFilteredProducts(sortedProducts, state);
@@ -64,22 +69,18 @@ export const ProductList = () => {
               const isAlreadyInWishlist = wishlist?.find(
                 wishlistProduct => wishlistProduct._id === id
               );
-              const isAlreadyInCart = cart?.find(
-                cartProduct => cartProduct._id === id
-              );
-
+             
               return (
                 <div className="products-card" key={id}>
                   <div className="card ecommerce-card card-with-badge">
                     <div
                       className={inStock <= 0 ? "card-with-text-overlay" : ""}
                     >
-                      <div
-                        className="card-header"
-                        onClick={() => navigate(`/product/${uid}`)}
-                      >
-                        <img src={imageSrc} alt={title} />
-                      </div>
+                     <Link to={`/product/${id}`}>
+                        <div className="card-header">
+                          <img src={imageSrc} alt={title} />
+                        </div>
+                      </Link>
 
                       <button
                         className="card-floating-icon"
@@ -106,7 +107,7 @@ export const ProductList = () => {
                         )}
                       </button>
                       <div className="card-body">
-                        <Link to={`/product/${uid}`}>
+                      <Link to={`/product/${id}`}>
                           <h5 className="card-title">{title}</h5>
                         </Link>
                         <div className="brand-star-container">
@@ -127,25 +128,7 @@ export const ProductList = () => {
                             {discountInPercentage}% OFF
                           </span>
                         </div>
-                        {isAlreadyInCart ? (
-                          <Link
-                            to="/cart"
-                            className="btn btn-primary add-to-cart"
-                          >
-                            Go to Cart
-                          </Link>
-                        ) : (
-                          <button
-                            className="btn btn-primary add-to-cart"
-                            onClick={() =>
-                              token
-                                ? addToCartService(product, token, dispatch)
-                                : navigate("/login")
-                            }
-                          >
-                            Add to Cart
-                          </button>
-                        )}
+                      
                       </div>
                     </div>
                     {inStock <= 0 ? (

@@ -1,14 +1,14 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { productReducer } from "../reducers/productReducer";
-const ProductContext = createContext(null);
+
 
 const initialState = {
   products: [],
   loading: false,
   error: null,
 };
-
+const ProductContext = createContext(initialState);
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
 

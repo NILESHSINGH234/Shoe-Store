@@ -5,6 +5,7 @@ export {
     putCommasInPrice,
     getMaxPriceForFilter,
   getSortedProducts,
+  getProductById,
   getFilteredProducts,
   totalItemsInCart,
   getTotalMrpInCart,
