@@ -1,0 +1,124 @@
+@import "../../index.css";
+
+.nav-ecommerce {
+  background-color: var(--gray-900);
+  min-height: 9vh;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 10px 20px -15px var(--gray-800);
+}
+
+.nav-menu-btn {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
+.nav-menu-btn .material-icons {
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav-ecommerce .navbar-brand {
+  color: var(--white);
+}
+
+.nav-ecommerce .navbar-section .nav-form {
+  display: none;
+}
+
+.nav-form .search-input {
+  padding: 0 5px;
+}
+
+.nav-ecommerce .nav-item .nav-link .material-icons-outlined {
+  color: var(--white);
+}
+
+.nav-ecommerce .navbar-nav {
+  padding: 0;
+}
+
+.login-btn {
+  display: none;
+}
+
+.nav-ecommerce .navbar-nav .nav-item {
+  margin-right: 0;
+  margin-left: 1.25rem;
+}
+
+.nav-ecommerce .navbar-nav .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon-mobile {
+  background: transparent;
+  border: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .login-btn {
+    display: block;
+  }
+  .nav-ecommerce .nav-item .nav-link.search-icon-mobile {
+    display: none;
+  }
+
+  .nav-ecommerce .navbar-section .nav-form {
+    display: flex;
+    height: auto;
+    border-radius: 4px;
+    padding: 2px;
+    background: var(--gray-800);
+  }
+
+  .nav-form .search-input {
+    padding: 6px 8px;
+    color: var(--white);
+    font-weight: 400;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    min-width: 30vw;
+  }
+
+  .nav-form .search-btn {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    color: var(--secondary-color);
+    border-radius: 4px;
+    transition: all 0.5s ease;
+  }
+
+  .nav-form .search-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+  }
+
+  .nav-ecommerce .navbar-nav .nav-item {
+    margin-right: 0;
+    margin-left: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .nav-form .search-input {
+    min-width: 25vw;
+  }
+}

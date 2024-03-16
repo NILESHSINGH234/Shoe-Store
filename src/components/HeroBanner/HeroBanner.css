@@ -1,0 +1,69 @@
+@import "../../index.css";
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 10px;
+  padding: 1rem;
+  background: var(--gray-50);
+  margin-top: 4.5rem;
+}
+
+.hero .hero-img img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-content {
+  padding-top: 1rem;
+  padding-right: 1rem;
+  order: 2;
+}
+
+.hero-img {
+  order: 1;
+}
+
+.hero-description {
+  font-size: 1rem;
+  padding-top: 0.5rem;
+}
+
+.hero-btn {
+  margin: 2rem 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-content {
+    padding: 0rem 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hero {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 5rem;
+  }
+
+  .hero-img {
+    order: 2;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .hero {
+    flex-direction: row-reverse;
+    padding: 1.5rem;
+  }
+  .hero-description {
+    font-size: 1.2rem;
+  }
+}
