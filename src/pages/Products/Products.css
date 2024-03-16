@@ -133,6 +133,20 @@
       font-size: 0.85rem;
     }
   }
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    min-width: 60vw;
+    color: var(--gray-600);
+  }
   
   @media only screen and (min-width: 1280px) {
     .products-grid-container .grid {
