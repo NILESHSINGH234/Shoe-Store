@@ -1,6 +1,6 @@
 import React from 'react'
 import { HeroBanner } from '../../components/HeroBanner/HeroBanner'
-import { ExploreCategories } from '../../components'
+import { ExploreCategories, Footer } from '../../components'
 import { FeaturedProducts } from '../../components'
 export const Home = () => {
   return (
@@ -10,6 +10,7 @@ export const Home = () => {
       <ExploreCategories />
       <FeaturedProducts />
     </main>
+    <Footer></Footer>
     </div>
   )
 }

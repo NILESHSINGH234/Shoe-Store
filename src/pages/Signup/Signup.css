@@ -1,18 +1,17 @@
 @import "../../index.css";
 
-.login-section {
+.signup-section {
   margin-top: 6rem;
 }
 
-.login-container {
+.signup-container {
   padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 75vh;
 }
 
-.card.login-card-container {
+.card.signup-card-container {
   padding: 1rem;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -22,7 +21,14 @@
   overflow: hidden;
 }
 
-.card.login-card-container .card-title {
+.signup-error-message {
+  font-size: 12px;
+  background-color: var(--light-red);
+  padding: 6px;
+  margin-bottom: 0.8rem;
+}
+
+.card.signup-card-container .card-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--gray-800);
@@ -30,23 +36,16 @@
   margin: 0 0 1rem 0;
 }
 
-.login-error-message {
-  font-size: 12px;
-  background-color: var(--light-red);
-  padding: 6px;
-  margin-bottom: 0.8rem;
-}
-
-.card.login-card-container .card-body {
+.card.signup-card-container .card-body {
   width: 100%;
 }
 
-.card.login-card-container .card-body .input-group {
+.card.signup-card-container .card-body .input-group {
   width: auto;
   margin: 0 0 10px;
 }
 
-.card.login-card-container .card-extra-content {
+.card.signup-card-container .card-extra-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -54,33 +53,33 @@
   margin: 1rem 0;
 }
 
-.card.login-card-container .card-extra-content .checkbox-label {
+.card.signup-card-container .card-extra-content .checkbox-label {
   margin: 0;
 }
 
-.card.login-card-container .card-extra-content .checkbox {
+.card.signup-card-container .card-extra-content .checkbox {
   margin-left: 0;
 }
 
-.card.login-card-container .card-extra-content .forgot-password {
+.card.signup-card-container .card-extra-content .forgot-password {
   color: var(--secondary-color);
   cursor: pointer;
 }
 
-.card.login-card-container .card-extra-content .forgot-password:hover {
+.card.signup-card-container .card-extra-content .forgot-password:hover {
   opacity: 0.8;
 }
 
-.card.login-card-container .login-btn {
+.card.signup-card-container .signup-btn {
   width: 100%;
 }
 
-.card.login-card-container .create-new-account-link {
+.card.signup-card-container .create-new-account-link {
   text-align: center;
   margin-top: 1.5rem;
 }
 
-.card.login-card-container .create-new-account-link a {
+.card.signup-card-container .create-new-account-link a {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
@@ -89,18 +88,18 @@
   transition: all 0.3s ease;
 }
 
-.card.login-card-container .create-new-account-link a:hover {
+.card.signup-card-container .create-new-account-link a:hover {
   color: var(--secondary-color);
 }
 
 @media only screen and (min-width: 450px) {
-  .login-container {
+  .signup-container {
     padding: 0 2rem;
   }
-  .login-section {
+  .signup-section {
     margin-top: 8rem;
   }
-  .card.login-card-container {
+  .card.signup-card-container {
     padding: 2rem;
   }
 }
@@ -110,17 +109,17 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .login-container {
+  .signup-container {
     padding: 0 4rem;
   }
 }
 
 @media only screen and (min-width: 1280px) {
-  .login-container {
+  .signup-container {
     max-width: 1024px;
     margin: 0 auto;
   }
-  .login-section {
+  .signup-section {
     margin-top: 8rem;
   }
 }
