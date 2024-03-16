@@ -38,7 +38,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Smart Band M3",
+    title: "AIR MAX 90 'NEUTRAL OLIVE/BLACK-MEDIUM OLIVE",
     brand: "Classic Sneakers",
     priceInMrp: 3999,
     discountInPercentage: 70,
@@ -53,7 +53,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "AIR MAX 90 'NEUTRAL OLIVE/BLACK-MEDIUM OLIVE'",
+    title: "AIR MAX 90 'NEUTRAL OLIVE/BLACK-MEDIUM OLIV",
     brand: "Basketball Sneakers",
     priceInMrp: 44499,
     discountInPercentage: 27,
