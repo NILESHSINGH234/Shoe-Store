@@ -10,6 +10,7 @@ import { useAuth } from "./context/AuthContext";
 import Mockman from "mockman-js";
 import { Navbar } from "./components";
 import { Toaster } from "react-hot-toast";
+import { SingleProduct } from "./pages";
 import { ToasterWrapper } from "./utils/ToasterWrapper";
 function App() {
 
@@ -25,6 +26,8 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/products" element={<Products></Products>}></Route>
          <Route path="/wishlist" element={<Wishlist></Wishlist>}></Route>
+         <Route path="/product/:productId" element={<SingleProduct />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/cart" element={<Cart></Cart>}></Route>
         {!isLoggedIn && <Route path="/login" element={<Login></Login>}></Route>}
         {!isLoggedIn && <Route path="/signup" element={<Signup></Signup>}></Route>}
