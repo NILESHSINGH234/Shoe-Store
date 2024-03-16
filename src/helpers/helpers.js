@@ -108,17 +108,23 @@ export const putCommasInPrice = price =>
         let searchedProducts = [];
         searchedProducts.push(
           ...products.filter(product => {
-            return product.title.toLowerCase().includes(state.search.toLowerCase());
+          //  return product.title.toLowerCase().includes(state.search.toLowerCase());
+          return product.categoryName
+          .toLowerCase()
+          .includes(state.search.toLowerCase());
           })
         );
         searchedProducts.push(
           ...products.filter(product => {
-            return product.categoryName
-              .toLowerCase()
-              .includes(state.search.toLowerCase());
+            return (
+              product.title.toLowerCase().includes(state.search.toLowerCase()) &&
+              !searchedProducts.includes(product)
+            );
           })
         );
-        return searchedProducts;
+       // return searchedProducts;
+       products = searchedProducts;
+    return products;
       }
       return products;
     };

@@ -6,6 +6,7 @@ const initialState = {
   search:"",
   sortBy: "",
   categories: [],
+  sortBy: "RELEVANCE",
   brands: [],
   minPrice: 0,
   maxPrice: 0,

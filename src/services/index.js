@@ -1,3 +1,5 @@
+export { getSingleProductService } from "./product/getSingleProductService";
+
 export { loginService } from "./auth/loginService";
 export { signupService } from "./auth/signupService";
 export {
@@ -5,6 +7,7 @@ export {
     addToCartService,
     deleteFromCartService,
     updateQtyService,
+    clearCartService,
   } from "./cart/cartService";
 
   export {
@@ -13,3 +16,4 @@ export {
     deleteFromWishlistService,
     toggleFavorite,
   } from "./wishlist/wishlistService";
+  

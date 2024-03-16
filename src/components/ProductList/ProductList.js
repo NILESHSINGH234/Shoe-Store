@@ -14,7 +14,7 @@ import { getSortedProducts,getFilteredProducts,priceAfterDiscount,putCommasInPri
 import { getSearchedProducts } from "../../helpers/helpers";
 import { useWishlistAndCart } from "../../context/WishlistAndCartContext";
 //import { addToCartService, toggleFavorite } from "../../services";
-import { toggleFavorite } from "../../services";
+import { toggleFavorite,addToCartService } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -28,7 +28,7 @@ export const ProductList = () => {
     state: { token },
   } = useAuth();
   const {
-    state: { wishlist },
+    state: { wishlist,cart },
     dispatch,
   } = useWishlistAndCart();
 
@@ -70,17 +70,22 @@ export const ProductList = () => {
                 wishlistProduct => wishlistProduct._id === id
               );
              
+              const isAlreadyInCart = cart?.find(
+                cartProduct => cartProduct._id === id
+              );
+
               return (
                 <div className="products-card" key={id}>
                   <div className="card ecommerce-card card-with-badge">
                     <div
                       className={inStock <= 0 ? "card-with-text-overlay" : ""}
                     >
-                     <Link to={`/product/${id}`}>
-                        <div className="card-header">
-                          <img src={imageSrc} alt={title} />
-                        </div>
-                      </Link>
+                    <div
+                        className="card-header"
+                        onClick={() => navigate(`/product/${uid}`)}
+                      >
+                        <img src={imageSrc} alt={title} />
+                      </div>
 
                       <button
                         className="card-floating-icon"
@@ -128,7 +133,25 @@ export const ProductList = () => {
                             {discountInPercentage}% OFF
                           </span>
                         </div>
-                      
+                        {isAlreadyInCart ? (
+                          <Link
+                            to="/cart"
+                            className="btn btn-primary add-to-cart"
+                          >
+                            Go to Cart
+                          </Link>
+                        ) : (
+                          <button
+                            className="btn btn-primary add-to-cart"
+                            onClick={() =>
+                              token
+                                ? addToCartService(product, token, dispatch)
+                                : navigate("/login")
+                            }
+                          >
+                            Add to Cart
+                          </button>
+                        )}
                       </div>
                     </div>
                     {inStock <= 0 ? (

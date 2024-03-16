@@ -1,7 +1,7 @@
-import "./Cart.css";
-import { useWishlistAndCart } from "../../context/WishlistAndCartContext";
 import React, { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
+import "./Cart.css";
+import { useWishlistAndCart } from "../../context/WishlistAndCartContext";
 import {
   priceAfterDiscount,
   putCommasInPrice,
@@ -12,21 +12,24 @@ import {
 } from "../../helpers";
 import { useAuth } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
-import { CouponModal } from "../../components";
 import {
   addToWishlistService,
   deleteFromCartService,
   updateQtyService,
 } from "../../services";
+import { CouponModal } from "../../components";
 
 export const Cart = () => {
+  const [showCouponModal, setShowCouponModal] = useState(false);
   const {
-    state: { cart, totalItemsInCart, applyCoupon },
+  
+    state: { cart, totalItemsInCart, applyCoupon ,wishlist},
     dispatch,
   } = useWishlistAndCart();
   const {
     state: { token, isLoggedIn },
   } = useAuth();
+
   const { code, discount } = applyCoupon;
 
   const totalMrpInCart = getTotalMrpInCart(cart);
@@ -36,25 +39,26 @@ export const Cart = () => {
     totalAmountAfterDiscount
   );
  // const finalAmountToPay = getFinalAmountToPay(totalAmountAfterDiscount);
- const finalAmountToPay = getFinalAmountToPay(
-  totalAmountAfterDiscount,
-  discount
-);
+  const finalAmountToPay = getFinalAmountToPay(
+    totalAmountAfterDiscount,
+    discount
+  );
 
-useEffect(() => {
-  if (
-    (totalAmountAfterDiscount < 2500 && code === "SUMMER100") ||
-    (totalAmountAfterDiscount < 4000 && code === "BIGBONUS500")
-  ) {
-    dispatch({
-      type: "APPLY_COUPON",
-      payload: {
-        code: "",
-        discount: 0,
-      },
-    });
-  }
-}, [totalAmountAfterDiscount]);
+  useEffect(() => {
+    if (
+      (totalAmountAfterDiscount < 2500 && code === "SUMMER100") ||
+      (totalAmountAfterDiscount < 4000 && code === "BIGBONUS500")
+    ) {
+      dispatch({
+        type: "APPLY_COUPON",
+        payload: {
+          code: "",
+          discount: 0,
+        },
+      });
+    }
+  }, [totalAmountAfterDiscount]);
+
   return (
     <main className="main-wrapper">
       <section className="cart-section cart-container">
@@ -82,6 +86,9 @@ useEffect(() => {
                           const price_mrp = putCommasInPrice(priceInMrp);
                           const price_after_discount =
                             putCommasInPrice(_priceAfterDiscount);
+                            const isAlreadyInWishlist = wishlist?.find(
+                              item => item._id === id
+                            );
                           return (
                             <div className="card cart-horizontal-card" key={id}>
                               <div className="card-body">
@@ -107,9 +114,8 @@ useEffect(() => {
                                     <span>Quantity:</span>
                                     <div className="quantity-counter">
                                       <button
-                                       disabled={product.qty === 1}
+                                        disabled={product.qty === 1}
                                         onClick={() =>
-                                          
                                           updateQtyService(
                                             id,
                                             token,
@@ -150,11 +156,12 @@ useEffect(() => {
                                   className="btn btn-light btn-sm  save-for-later"
                                   onClick={() => {
                                     deleteFromCartService(id, token, dispatch);
-                                    addToWishlistService(
-                                      product,
-                                      token,
-                                      dispatch
-                                    );
+                                    !isAlreadyInWishlist &&
+                                      addToWishlistService(
+                                        product,
+                                        token,
+                                        dispatch
+                                      );
                                   }}
                                 >
                                   Save for later
@@ -163,10 +170,10 @@ useEffect(() => {
                             </div>
                           );
                         })}
-                    
                     </div>
                     <div className="cart-grid-items">
-                    <div className="cart-summary coupon-section">
+                  
+                      <div className="cart-summary coupon-section">
                         <div className="card">
                           <div className="card-header">
                             <p className="card-title">
@@ -198,6 +205,8 @@ useEffect(() => {
                             </div>
                             <div className="card-item">
                               <p className="card-text">Coupon Discount</p>
+                             
+
                               {code === "" ? (
                                 <button
                                   className="apply-coupon"
@@ -251,25 +260,26 @@ useEffect(() => {
                     </div>
                   </div>
                 </div>
-                </>
+              </>
             ) : (
               <div className="cart-message-container">
                 <h3>Hey, it feels so light!</h3>
                 <p>There is nothing in your bag. Let's add some items.</p>
-                <Link className="btn btn-primary-outline" to="/wishlist">
-                  Add Items From Wishlist
+                <Link className="btn btn-primary-outline" to="/products">
+                  Add Items To Cart
                 </Link>
               </div>
-               )}
-               </div>
-             ) : (
-               <div className="cart-message-container">
-                 <h3>You're logged out.</h3>
-                 <p>Log in to view your cart.</p>
-                 <Link className="btn btn-primary-outline btn" to="/login">
-                   Login
-                 </Link>
-               </div>  )}
+            )}
+          </div>
+        ) : (
+          <div className="cart-message-container">
+            <h3>You're logged out.</h3>
+            <p>Log in to view your cart.</p>
+            <Link className="btn btn-primary-outline btn" to="/login">
+              Login
+            </Link>
+          </div>
+        )}
       </section>
     </main>
   );

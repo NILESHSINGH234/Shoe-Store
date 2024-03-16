@@ -8,6 +8,7 @@ import { useWishlistAndCart } from '../../context/WishlistAndCartContext';
 import { useState } from 'react';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { useFilter } from "../../context/FilterContext";
+import { RESET_WISHLIST_AND_CART } from "../../reducers/actions";
 
 export const Navbar = () => {
   const {
@@ -16,6 +17,7 @@ export const Navbar = () => {
   } = useAuth();
   const {
     state: { wishlist, totalItemsInCart  },
+    dispatch: cartDispatch,
   } = useWishlistAndCart();
   const navigate = useNavigate();
 
@@ -38,6 +40,13 @@ export const Navbar = () => {
       navigate("/products");
     }
   };
+
+  const logOut = () => {
+    logoutHandler();
+    cartDispatch({ type: RESET_WISHLIST_AND_CART });
+    navigate("/");
+  };
+
   return (
     <div className="">
     <nav className="navbar nav-ecommerce">
@@ -118,7 +127,7 @@ export const Navbar = () => {
         </ul>
         {isLoggedIn && (
           <button
-            onClick={logoutHandler}
+            onClick={logOut}
             className="btn btn-secondary btn-sm ml-1 hide-on-mobile"
           >
             Logout

@@ -8,6 +8,7 @@ import { Login } from "./pages/Login/Login";
 import { Signup } from "./pages";
 import { useAuth } from "./context/AuthContext";
 import Mockman from "mockman-js";
+import { Profile } from "./pages";
 import { Navbar } from "./components";
 import { Toaster } from "react-hot-toast";
 import { SingleProduct } from "./pages";

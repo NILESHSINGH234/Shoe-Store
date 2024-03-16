@@ -5,7 +5,6 @@ import { useFilter } from "../../context/FilterContext";
 import { useProduct } from "../../context/ProductContext";
 import { getUniqueValues, putCommasInPrice } from "../../helpers";
 import { FilterMobile } from "../FilterMobile/FilterMobile";
-
 export const FilterSidebar = () => {
   const [uniqueCategories, setUniqueCategories] = useState([]);
   const [uniqueBrands, setUniqueBrands] = useState([]);
@@ -25,12 +24,10 @@ export const FilterSidebar = () => {
     fastDelivery,
     includeOutOfStock,
   } = state;
-
   useEffect(() => {
     setUniqueCategories(getUniqueValues(products, "categoryName"));
     setUniqueBrands(getUniqueValues(products, "brand"));
   }, [products]);
-
   return (
     <React.Fragment>
       <FilterMobile
@@ -128,8 +125,7 @@ export const FilterSidebar = () => {
             </li>
             <li>
               <label className="radio-label">
-                <input
-                  className="radio-btn"
+                <input className="radio-btn"
                   type="radio"
                   name="sort"
                   checked={sortBy && sortBy === "PRICE_HIGH_TO_LOW"}

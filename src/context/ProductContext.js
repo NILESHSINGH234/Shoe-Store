@@ -16,7 +16,7 @@ const ProductProvider = ({ children }) => {
     dispatch({ type: "LOADING" });
     (async () => {
       try {
-        const { data, status } = await axios.get("api/products");
+        const { data, status } = await axios.get("/api/products");
         if (status === 200) {
           dispatch({ type: "LOAD_ALL_PRODUCTS", payload: data.products });
         }

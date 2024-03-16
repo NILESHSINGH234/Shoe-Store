@@ -38,6 +38,18 @@ import {
         return { ...state, wishlistError: payload };
       case CART_ERROR:
         return { ...state, cartError: payload };
+        case RESET_WISHLIST_AND_CART:
+          return {
+            wishlist: [],
+            cart: [],
+            applyCoupon: {
+              code: "",
+              discount: 0,
+            },
+            totalItemsInCart: 0,
+            wishlistError: "",
+            cartError: "",
+          };
       default:
         return state;
     }

@@ -7,6 +7,7 @@ export const Products = () => {
   const {
     state: { loading, error },
   } = useProduct();
+  console.log(error)
   return (
     <div>
       <main className="main-wrapper">
@@ -15,7 +16,7 @@ export const Products = () => {
         //<p>Loading...</p>
         <TailSpin color="#2563eb" height={80} width={80} className="loader" />
       ) : error ? (
-        <p>{error}</p>
+        <p>{error.message}</p>
       ) : (
         <>
           <section className="products-section products-container">

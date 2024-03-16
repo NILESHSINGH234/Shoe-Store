@@ -57,7 +57,8 @@ import {
           return { ...state, sortBy: "PRICE_HIGH_TO_LOW" };
         if (payload === "PRICE_LOW_TO_HIGH")
           return { ...state, sortBy: "PRICE_LOW_TO_HIGH" };
-        return { ...state, sortBy: "" };
+       // return { ...state, sortBy: "" };
+        return { ...state, sortBy: "RELEVANCE" };
       }
       case FILTER_BY_CASH_ON_DELIVERY: {
         return { ...state, cashOnDelivery: payload };
@@ -79,6 +80,7 @@ import {
           maxPrice: state.maxPrice,
           price: state.maxPrice,
           rating: 0,
+          sortBy: "RELEVANCE",
           cashOnDelivery: false,
           fastDelivery: false,
           includeOutOfStock: true,
