@@ -5,7 +5,7 @@ import { signupService, loginService } from "../services";
 
 const initialState = {
   token: "",
-  userInfo: {},
+  userInfo: null,
   isLoggedIn: false,
   error: "",
 };
@@ -15,7 +15,7 @@ const AuthContext = createContext(initialState);
 const AuthProvider = ({ children }) => {
   const getTokenFromLocalStorage = localStorage.getItem("token") || "";
   const getUserFromLocalStorage =
-    JSON.parse(localStorage.getItem("user")) || "";
+    JSON.parse(localStorage.getItem("user")) ||null;
   const [state, dispatch] = useReducer(authReducer, initialState);
   const navigate = useNavigate();
 

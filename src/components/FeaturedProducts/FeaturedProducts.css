@@ -67,6 +67,9 @@
   .featured-product-card .price-after-discount {
     font-size: 1rem;
   }
+  .card-floating-icon span.icon-active {
+    color: var(--red);
+  }
 
   .featured-product-card .card-price > :is(.price-before-discount, .discount) {
     font-size: 0.85rem;

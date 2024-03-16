@@ -28,9 +28,10 @@
     color: var(--red);
   }
   
-  .products-card .card-floating-icon span.icon-active:hover {
-    color: var(--grey);
+  .card-floating-icon span.icon-active {
+    color: var(--red);
   }
+  
   
   .products-card .card-with-badge .card-title {
     font-size: 1rem;

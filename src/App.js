@@ -22,8 +22,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/products" element={<Products></Products>}></Route>
-       {isLoggedIn && <Route path="/wishlist" element={<Wishlist></Wishlist>}></Route>}
-        {isLoggedIn &&<Route path="/cart" element={<Cart></Cart>}></Route>}
+         <Route path="/wishlist" element={<Wishlist></Wishlist>}></Route>
+        <Route path="/cart" element={<Cart></Cart>}></Route>
         {!isLoggedIn && <Route path="/login" element={<Login></Login>}></Route>}
         {!isLoggedIn && <Route path="/signup" element={<Signup></Signup>}></Route>}
         <Route path="/mock" element={<Mockman></Mockman>}></Route>
