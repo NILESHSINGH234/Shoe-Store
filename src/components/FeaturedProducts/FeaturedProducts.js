@@ -6,7 +6,7 @@ import {
   priceAfterDiscount,
   putCommasInPrice,
 } from "../../helpers";
-import { addToCartService } from "../../services";
+//import { addToCartService } from "../../services";
 import { useNavigate,Link } from "react-router-dom";
 import { toggleFavorite } from "../../services";
 import { useAuth } from "../../context/AuthContext";
@@ -20,7 +20,7 @@ export const FeaturedProducts = () => {
     state: { token },
   } = useAuth();
   const {
-    state: { wishlist, cart },
+    state: { wishlist },
     dispatch,
   } = useWishlistAndCart();
   const featuredProducts = getFeaturedProducts(products);
@@ -56,15 +56,15 @@ export const FeaturedProducts = () => {
                 const isAlreadyInWishlist = wishlist?.find(
                   wishlistProduct => wishlistProduct._id === id
                 );
-                const isAlreadyInCart = cart?.find(
-                  cartProduct => cartProduct._id === id
-                );
+               
               return (
                 <div className="featured-product-card" key={id}>
                   <div className="card ecommerce-card card-with-badge">
-                    <div className="card-header">
-                      <img src={imageSrc} alt={title} />
-                    </div>
+                  <Link to={`product/${id}`}>
+                      <div className="card-header">
+                        <img src={imageSrc} alt={title} />
+                      </div>
+                    </Link>
                     <button
                       className="card-floating-icon"
                       onClick={() =>
@@ -90,7 +90,9 @@ export const FeaturedProducts = () => {
                       )}
                     </button>
                     <div className="card-body">
-                      <h5 className="card-title">{title}</h5>
+                    <Link to={`product/${id}`}>
+                        <h5 className="card-title">{title}</h5>
+                      </Link>
                       <div className="card-price">
                         <span className="price-after-discount">
                           ₹{price_after_discount}
@@ -102,25 +104,7 @@ export const FeaturedProducts = () => {
                           {discountInPercentage}% OFF
                         </span>
                       </div>
-                      {isAlreadyInCart ? (
-                        <Link
-                          to="/cart"
-                          className="btn btn-light btn-sm add-to-cart"
-                        >
-                          Go to Cart
-                        </Link>
-                      ) : (
-                        <button
-                          className="btn btn-light btn-sm add-to-cart"
-                          onClick={() =>
-                            token
-                              ? addToCartService(product, token, dispatch)
-                              : navigate("/login")
-                          }
-                        >
-                          Add to Cart
-                        </button>
-                      )}
+                     
                     </div>
                   </div>
                 </div>
