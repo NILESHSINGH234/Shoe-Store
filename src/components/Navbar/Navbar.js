@@ -9,7 +9,7 @@ export const Navbar = () => {
     logoutHandler,
   } = useAuth();
   const {
-    state: { wishlist, cart },
+    state: { wishlist, cart,totalItemsInCart  },
   } = useWishlistAndCart();
   return (
     <nav className="navbar nav-ecommerce">
@@ -55,9 +55,8 @@ export const Navbar = () => {
           <li className="nav-item">
             <Link to="/cart" class="nav-link badge badge-on-icon-sm">
               <i className="material-icons-outlined">shopping_bag</i>
-            
-              {isLoggedIn && cart?.length > 0 ? (
-                <span className="badge-number">{cart.length}</span>
+              {isLoggedIn && totalItemsInCart > 0 ? (
+                <span className="badge-number">{totalItemsInCart}</span>
               ) : null}
             </Link>
           </li>

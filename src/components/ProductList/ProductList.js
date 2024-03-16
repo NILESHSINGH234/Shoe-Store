@@ -12,7 +12,8 @@ import {
 import { useWishlistAndCart } from "../../context/WishlistAndCartContext";
 import { toggleFavorite } from "../../services";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+import { addToCartService } from "../../services";
 
 export const ProductList = () => {
   const {
@@ -24,7 +25,7 @@ export const ProductList = () => {
     state: { token },
   } = useAuth();
   const {
-    state: { wishlist },
+    state: { wishlist,cart },
     dispatch,
   } = useWishlistAndCart();
   const sortedProducts = getSortedProducts(products, state);
@@ -105,6 +106,25 @@ export const ProductList = () => {
                           {discountInPercentage}% OFF
                         </span>
                       </div>
+                      {isAlreadyInCart ? (
+                        <Link
+                          to="/cart"
+                          className="btn btn-light btn-sm add-to-cart"
+                        >
+                          Go to Cart
+                        </Link>
+                      ) : (
+                        <button
+                          className="btn btn-light btn-sm add-to-cart"
+                          onClick={() =>
+                            token
+                              ? addToCartService(product, token, dispatch)
+                              : navigate("/login")
+                          }
+                        >
+                          Add to Cart
+                        </button>
+                      )}
                     </div>
                   </div>
                   {inStock <= 0 ? (

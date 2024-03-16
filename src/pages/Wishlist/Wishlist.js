@@ -3,15 +3,20 @@ import { useWishlistAndCart } from "../../context/WishlistAndCartContext";
 import { priceAfterDiscount, putCommasInPrice } from "../../helpers";
 import { BsStarFill } from "react-icons/bs";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { deleteFromWishlistService } from "../../services";
+//import { deleteFromWishlistService } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import { Link,useNavigate } from "react-router-dom";
 import { addToCartService } from "../../services";
+import {
+  deleteFromWishlistService,
+  addToCartService,
+  updateQtyService,
+} from "../../services";
 
 export const Wishlist = () => {
 
   const {
-    state: { wishlist },
+    state: { wishlist ,cart},
     dispatch,
   } = useWishlistAndCart();
   const {
@@ -49,6 +54,9 @@ export const Wishlist = () => {
                     const price_mrp = putCommasInPrice(priceInMrp);
                     const price_after_discount =
                       putCommasInPrice(_priceAfterDiscount);
+                      const isAlreadyInCart = cart?.find(
+                        cartProduct => cartProduct._id === id
+                      );
                     return (
                       <div className="wishlist-product-card" key={id}>
                         <div className="card ecommerce-card card-with-badge">
@@ -88,7 +96,14 @@ export const Wishlist = () => {
                             <button
                               className="btn btn-light btn-sm font-weight-500 move-to-bag"
                               onClick={() => {
-                                addToCartService(product, token, dispatch);
+                                isAlreadyInCart
+                                ? updateQtyService(
+                                    id,
+                                    token,
+                                    "increment",
+                                    dispatch
+                                  )
+                                : addToCartService(product, token, dispatch);
                                 deleteFromWishlistService(id, token, dispatch);
                                 navigate("/cart");
                               }}
@@ -109,7 +124,7 @@ export const Wishlist = () => {
                   Add items that you would like to save for later to your
                   wishlist
                 </p>
-                <Link className="btn btn-primary-outline btn-sm" to="/products">
+                <Link className="btn btn-primary-outline" to="/products">
                 Add Items To Wishlist
                 </Link>
               </div>
