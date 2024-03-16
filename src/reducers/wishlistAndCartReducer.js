@@ -1,7 +1,18 @@
-import { LOAD_CART_FROM_SERVER,LOAD_WISHLIST_FROM_SERVER,ADD_TO_CART,ADD_TO_WISHLIST
-,REMOVE_FROM_WISHLIST,REMOVE_FROM_CART,WISHLIST_ERROR,CART_ERROR} from ".";
-import { UPDATE_QUANTITY } from "./actions";
-import { TOTAL_ITEMS_IN_CART } from "./actions";
+import {
+  LOAD_WISHLIST_FROM_SERVER,
+  LOAD_CART_FROM_SERVER,
+  ADD_TO_WISHLIST,
+  REMOVE_FROM_WISHLIST,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  UPDATE_QUANTITY,
+  TOTAL_ITEMS_IN_CART,
+  WISHLIST_ERROR,
+  CART_ERROR,
+  APPLY_COUPON,
+  RESET_CART,
+  RESET_WISHLIST_AND_CART,
+} from "./actions";
   
   export const wishlistAndCartReducer = (state, { type, payload }) => {
     switch (type) {

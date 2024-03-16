@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import { authReducer } from "../reducers";
 import { useNavigate } from "react-router-dom";
 import { signupService, loginService } from "../services";
-
+import toast from "react-hot-toast";
 const initialState = {
   token: "",
   userInfo: null,
@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const signupHandler = async (firstName, lastName, email, password) => {
+    const toastId = toast.loading("Creating your account...");
     try {
       const { status } = await signupService(
         firstName,
@@ -41,20 +42,31 @@ const AuthProvider = ({ children }) => {
         password
       );
       if (status === 200 || status === 201) {
+        toast.success("Account created successfully!", {
+          id: toastId,
+        });
         navigate("/login");
       }
     } catch (error) {
+      toast.error("Some error occured. Try Again.", {
+        id: toastId,
+      });
       dispatch({ type: "AUTH_ERROR", payload: error.response });
     }
   };
 
   const loginHandler = async (email, password) => {
+    const toastId = toast.loading("Logging in...");
     try {
       const {
         data: { encodedToken, foundUser },
         status,
       } = await loginService(email, password);
       if (status === 200) {
+        toast.success(`Hello, ${foundUser.firstName}. Welcome back!`, {
+          id: toastId,
+          icon: "👋",
+        });
         localStorage.setItem("token", encodedToken);
         localStorage.setItem("user", JSON.stringify({ user: foundUser }));
         dispatch({ type: "SAVE_TOKEN", payload: encodedToken });
@@ -66,11 +78,18 @@ const AuthProvider = ({ children }) => {
         navigate("/");
       }
     } catch (error) {
+      toast.error("Some error occured. Try Again.", {
+        id: toastId,
+      });
       dispatch({ type: "AUTH_ERROR", payload: error.response });
     }
   };
 
   const logoutHandler = () => {
+    const toastId = toast.loading("Logging out...");
+    toast.success("You're logged out successfully", {
+      id: toastId,
+    });
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     dispatch({ type: "LOG_OUT" });

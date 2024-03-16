@@ -1,36 +1,202 @@
+@import "../FilterSidebar/FilterSidebar.css";
+
+li {
+  list-style: none;
+}
+
 .filter-container-mobile {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    position: fixed;
-    bottom: 0;
-    height: 8vh;
-    width: 100vw;
-    background-color: var(--bg-clr-gray);
-    z-index: 999;
-    box-shadow: 0 0 2px 0 rgb(148 150 159 / 30%);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 8vh;
+  width: 100vw;
+  background-color: var(--bg-clr-gray);
+  z-index: 2;
+  box-shadow: 0 0 2px 0 rgb(148 150 159 / 30%);
+}
+
+.filter-container-mobile > :is(.sort, .filter) {
+  display: flex;
+  flex: 1;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-800);
+  cursor: pointer;
+}
+
+.filter-container-mobile .sort {
+  border-right: 1px solid var(--gray-300);
+}
+
+.filter .filter-icon {
+  font-size: 12px;
+}
+
+.slide-modal {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  width: 100vw;
+  background: var(--white);
+  padding: 2rem;
+  box-shadow: 0 0 2px 0 rgb(148 150 159 / 30%);
+  animation: slideup 0.3s ease-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.sort-modal {
+  height: 30vh;
+}
+
+.filter-modal {
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.slide-modal-hide {
+  display: none;
+}
+
+@keyframes slideup {
+  0% {
+    transform: translateY(100%);
   }
-  
-  .filter-container-mobile > :is(.sort, .filter) {
-    display: flex;
-    flex: 1;
-    gap: 6px;
-    align-items: center;
-    justify-content: center;
-    color: var(--gray-800);
-    cursor: pointer;
+  100% {
+    transform: translateY(0%);
   }
-  
-  .filter-container-mobile .sort {
-    border-right: 1px solid var(--gray-300);
+}
+
+.close-icon {
+  position: absolute;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--gray-600);
+}
+
+.modal-bg {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.modal-bg.hide {
+  display: none;
+}
+
+.filter-clear-btn {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #ff5e5e;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.filter-mobile {
+  padding: 15px 0;
+}
+
+.divider {
+  border: 1px solid var(--gray-50);
+}
+
+.filter-mobile .filter-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: block;
+  margin: 0 0 0.8rem;
+}
+
+.filter-modal .filter-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: block;
+  margin: 0 0 0.5rem;
+}
+
+.filter-mobile .filter-list {
+  font-weight: 400;
+  color: var(--gray-600);
+}
+
+.filter-mobile .filter-list li {
+  padding-bottom: 4px;
+}
+
+.filter-list .price-label {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.filter-mobile .filter-list .checkbox-label {
+  margin: 0;
+}
+
+.filter-mobile .filter-list .checkbox {
+  margin-left: 0;
+}
+
+.filter-mobile .filter-list .radio-label {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.filter-mobile .filter-list .radio-btn {
+  margin-left: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .sort-modal {
+    padding: 3rem;
   }
-  
-  .filter .filter-icon {
-    font-size: 12px;
+  .close-icon {
+    font-size: 2rem;
   }
-  
-  @media only screen and (min-width: 1024px) {
-    .filter-container-mobile {
-      display: none;
-    }
+  .filter-mobile .filter-title {
+    font-size: 1.5rem;
   }
+  .filter-modal .filter-title {
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    margin: 0 0 0.5rem;
+  }
+  .filter-mobile .filter-list {
+    padding-top: 1rem;
+  }
+  .filter-mobile .filter-list .checkbox-label {
+    font-size: 1rem;
+  }
+  .filter-mobile .filter-list .radio-label {
+    font-size: 1rem;
+  }
+  .filter-mobile .filter-list .price-label {
+    font-size: 1rem;
+  }
+  .filter-mobile .filter-list .radio-label {
+    font-size: 1rem;
+    padding-bottom: 0.2rem;
+    margin: 0;
+  }
+  .filter-clear-btn {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .filter-container-mobile {
+    display: none;
+  }
+}

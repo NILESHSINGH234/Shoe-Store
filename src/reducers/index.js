@@ -1,14 +1,3 @@
 export { filterReducer } from "./filterReducer";
 export { authReducer } from "./authReducer";
 export { wishlistAndCartReducer } from "./wishlistAndCartReducer";
-export const LOAD_WISHLIST_FROM_SERVER = "LOAD_WISHLIST_FROM_SERVER";
-export const ADD_TO_WISHLIST = "ADD_TO_WISHLIST";
-export const REMOVE_FROM_WISHLIST = "REMOVE_FROM_WISHLIST";
-export const LOAD_CART_FROM_SERVER = "LOAD_CART_FROM_SERVER";
-export const ADD_TO_CART = "ADD_TO_CART";
-export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
-export const INCREMENT_QUANTITY = "INCREMENT_QUANTITY";
-export const DECREMENT_QUANTITY = "DECREMENT_QUANTITY";
-export const WISHLIST_ERROR = "WISHLIST_ERROR";
-export const CART_ERROR = "CART_ERROR";
-export const SHOW_TOAST = "SHOW_TOAST";

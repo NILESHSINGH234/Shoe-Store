@@ -1,6 +1,7 @@
 import axios from "axios";
-
+import toast from "react-hot-toast";
 export const getCartService = async (token, dispatch) => {
+
     try {
       const { data, status } = await axios.get("/api/user/cart", {
         headers: { authorization: token },
@@ -15,6 +16,7 @@ export const getCartService = async (token, dispatch) => {
   
 
   export const addToCartService = async (product, token, dispatch) => {
+    const toastId = toast.loading("Adding item to cart...");
     try {
       const { data, status } = await axios.post(
         "/api/user/cart",
@@ -24,6 +26,9 @@ export const getCartService = async (token, dispatch) => {
         }
       );
       if (status === 200 || status === 201) {
+        toast.success("Item added to cart.", {
+          id: toastId,
+        });
         dispatch({ type: "ADD_TO_CART", payload: data.cart });
       }} catch (error) {
         dispatch({ type: "CART_ERROR", payload: error.response });
@@ -31,14 +36,21 @@ export const getCartService = async (token, dispatch) => {
     };
 
     export const deleteFromCartService = async (productId, token, dispatch) => {
+      const toastId = toast.loading("Deleting item from cart...");
         try {
           const { data, status } = await axios.delete(`/api/user/cart/${productId}`, {
             headers: { authorization: token },
           });
           if (status === 200) {
+            toast.success("Item deleted from cart.", {
+              id: toastId,
+            });
             dispatch({ type: "REMOVE_FROM_CART", payload: data.cart });
           }
         } catch (error) {
+          toast.error("Some error occured. Try Again.", {
+            id: toastId,
+          });
           dispatch({ type: "CART_ERROR", paylaod: error.response });
         }
       };
@@ -50,6 +62,7 @@ export const getCartService = async (token, dispatch) => {
         actionType,
         dispatch
       ) => {
+        const toastId = toast.loading("Updating quantity...");
         try {
           const { data, status } = await axios.post(
             `/api/user/cart/${productId}`,
@@ -62,10 +75,16 @@ export const getCartService = async (token, dispatch) => {
               }
             );
             if (status === 200 || status === 201) {
+              toast.success("Quantity updated.", {
+                id: toastId,
+              });
               dispatch({ type: "UPDATE_QUANTITY", payload: data.cart });
             }
     
           } catch (error) {
+            toast.error("Some error occured. Try Again.", {
+              id: toastId,
+            });
             dispatch({ type: "CART_ERROR", paylaod: error.response });
           }
         };

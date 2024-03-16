@@ -6,7 +6,7 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 //import { deleteFromWishlistService } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import { Link,useNavigate } from "react-router-dom";
-import { addToCartService } from "../../services";
+//import { addToCartService } from "../../services";
 import {
   deleteFromWishlistService,
   addToCartService,

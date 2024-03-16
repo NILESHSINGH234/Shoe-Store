@@ -8,7 +8,7 @@ export const Products = () => {
   return (
     <div>
       <main className="main-wrapper">
-      <FilterMobile />
+    
       {loading ? (
         <p>Loading...</p>
       ) : error ? (

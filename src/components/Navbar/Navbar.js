@@ -3,13 +3,14 @@ import "./Navbar.css";
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext';
 import { useWishlistAndCart } from '../../context/WishlistAndCartContext';
+import { useState } from 'react';
 export const Navbar = () => {
   const {
     state: { isLoggedIn },
     logoutHandler,
   } = useAuth();
   const {
-    state: { wishlist, cart,totalItemsInCart  },
+    state: { wishlist, totalItemsInCart  },
   } = useWishlistAndCart();
   return (
     <nav className="navbar nav-ecommerce">

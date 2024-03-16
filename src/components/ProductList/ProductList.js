@@ -25,7 +25,7 @@ export const ProductList = () => {
     state: { token },
   } = useAuth();
   const {
-    state: { wishlist,cart },
+    state: { wishlist, cart },
     dispatch,
   } = useWishlistAndCart();
   const sortedProducts = getSortedProducts(products, state);
@@ -54,6 +54,9 @@ export const ProductList = () => {
             const price_after_discount = putCommasInPrice(_priceAfterDiscount);
             const isAlreadyInWishlist = wishlist?.find(
               wishlistProduct => wishlistProduct._id === id
+            );
+            const isAlreadyInCart = cart?.find(
+              cartProduct => cartProduct._id === id
             );
             return (
               <div className="products-card" key={id}>

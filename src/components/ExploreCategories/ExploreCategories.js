@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./ExploreCategories.css";
 import { getUniqueValues } from "../../helpers";
 import { useProduct } from "../../context/ProductContext";
-
+import { useNavigate } from "react-router-dom";
+import { useFilter } from "../../context/FilterContext";
 export const ExploreCategories = () => {
   const [categories, setCategories] = useState([]);
   const { state } = useProduct();
   const { products } = state;
+  const navigate = useNavigate();
+  const { dispatch } = useFilter();
 
   useEffect(() => {
     setCategories(getUniqueValues(products, "categoryName"));
@@ -23,7 +26,17 @@ export const ExploreCategories = () => {
             {categories &&
               categories.map((category, id) => {
                 return (
-                  <div className="category-card" key={id}>
+                  <div
+                    className="category-card"
+                    key={id}
+                    onClick={() => {
+                      dispatch({
+                        type: "FILTER_BY_CATEGORIES",
+                        payload: category,
+                      });
+                      navigate("/products");
+                    }}
+                  >
                     <div className="card text-only-card">
                       <h5 className="card-title text-center font-weight-400">
                         {category}

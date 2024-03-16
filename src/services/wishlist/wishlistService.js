@@ -1,6 +1,7 @@
 import axios from "axios";
-
+import toast from "react-hot-toast";
 export const getWishlistService = async (token, dispatch) => {
+  
   try {
     const { data, status } = await axios.get("/api/user/wishlist", {
       headers: { authorization: token },
@@ -14,6 +15,7 @@ export const getWishlistService = async (token, dispatch) => {
 };
 
 export const addToWishlistService = async (product, token, dispatch) => {
+  const toastId = toast.loading("Adding item to wishlist...");
   try {
     const { data, status } = await axios.post(
       "/api/user/wishlist",
@@ -23,14 +25,21 @@ export const addToWishlistService = async (product, token, dispatch) => {
       }
     );
     if (status === 200 || status === 201) {
+      toast.success("Item added to wishlist.", {
+        id: toastId,
+      });
       dispatch({ type: "ADD_TO_WISHLIST", payload: data.wishlist });
     }
   } catch (error) {
+    toast.error("Some error occured. Try Again.", {
+      id: toastId,
+    });
     dispatch({ type: "WISHLIST_ERROR", payload: error.response });
   }
 };
 
 export const deleteFromWishlistService = async (productId, token, dispatch) => {
+  const toastId = toast.loading("Deleting item from wishlist...");
   try {
     const { data, status } = await axios.delete(
       `/api/user/wishlist/${productId}`,
@@ -39,9 +48,15 @@ export const deleteFromWishlistService = async (productId, token, dispatch) => {
       }
     );
     if (status === 200) {
+      toast.success("Item deleted from wishlist.", {
+        id: toastId,
+      });
       dispatch({ type: "REMOVE_FROM_WISHLIST", payload: data.wishlist });
     }
   } catch (error) {
+    toast.error("Some error occured. Try Again.", {
+      id: toastId,
+    });
     dispatch({ type: "WISHLIST_ERROR", payload: error.response });
   }
 };
