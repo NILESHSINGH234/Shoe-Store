@@ -90,5 +90,36 @@ export const putCommasInPrice = price =>
     if (!state.includeOutOfStock) {
       tempProducts = tempProducts.filter(({ inStock }) => inStock > 0);
     }
-    return tempProducts;
-  };
+    return tempProducts;};
+    export const totalItemsInCart = cart => {
+      return [...cart].reduce((acc, curr) => (acc = acc + curr.qty), 0);
+    };
+    
+    export const getTotalMrpInCart = cart => {
+      return [...cart].reduce(
+        (acc, curr) => (acc = acc + curr.priceInMrp * curr.qty),
+        0
+      );
+    };
+    
+    export const getTotalAmount = cart => {
+      return [...cart].reduce((acc, curr) => {
+        let _priceAfterDiscount = priceAfterDiscount(
+          curr.priceInMrp,
+          curr.discountInPercentage
+        );
+        acc = acc + _priceAfterDiscount * curr.qty;
+        return acc;
+      }, 0);
+    };
+    
+    export const getTotalDiscountOnMrp = (totalMrp, amountAfterDiscount) =>
+      totalMrp - amountAfterDiscount;
+    
+    export const getFinalAmountToPay = totalAmountAfterDiscount => {
+      if (totalAmountAfterDiscount < 2000) {
+        return totalAmountAfterDiscount + 50;
+      } else {
+        return totalAmountAfterDiscount;
+      }
+    };

@@ -15,7 +15,7 @@ export const Login = () => {
 
   const errorMsg = error !== "" && error.data.errors[0];
 
-  console.log(errorMsg);
+  //console.log(errorMsg);
 
   const submitLoginFormData = () => {
     loginHandler(email, password);

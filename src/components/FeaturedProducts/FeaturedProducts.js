@@ -6,7 +6,8 @@ import {
   priceAfterDiscount,
   putCommasInPrice,
 } from "../../helpers";
-import { useNavigate } from "react-router-dom";
+import { addToCartService } from "../../services";
+import { useNavigate,Link } from "react-router-dom";
 import { toggleFavorite } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import { useWishlistAndCart } from "../../context/WishlistAndCartContext";
@@ -55,6 +56,9 @@ export const FeaturedProducts = () => {
                 const isAlreadyInWishlist = wishlist?.find(
                   wishlistProduct => wishlistProduct._id === id
                 );
+                const isAlreadyInCart = cart?.find(
+                  cartProduct => cartProduct._id === id
+                );
               return (
                 <div className="featured-product-card" key={id}>
                   <div className="card ecommerce-card card-with-badge">
@@ -98,6 +102,25 @@ export const FeaturedProducts = () => {
                           {discountInPercentage}% OFF
                         </span>
                       </div>
+                      {isAlreadyInCart ? (
+                        <Link
+                          to="/cart"
+                          className="btn btn-light btn-sm add-to-cart"
+                        >
+                          Go to Cart
+                        </Link>
+                      ) : (
+                        <button
+                          className="btn btn-light btn-sm add-to-cart"
+                          onClick={() =>
+                            token
+                              ? addToCartService(product, token, dispatch)
+                              : navigate("/login")
+                          }
+                        >
+                          Add to Cart
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

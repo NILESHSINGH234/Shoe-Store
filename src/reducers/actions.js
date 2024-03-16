@@ -17,3 +17,5 @@ export const SAVE_USER_INFO = "SAVE_USER_INFO";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const LOG_OUT = "LOG_OUT";
 export const SHOW_TOAST = "SHOW_TOAST";
+export const UPDATE_QUANTITY = "UPDATE_QUANTITY";
+export const TOTAL_ITEMS_IN_CART = "TOTAL_ITEMS_IN_CART";

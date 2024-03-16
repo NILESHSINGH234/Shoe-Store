@@ -1,5 +1,7 @@
-import { LOAD_CART_FROM_SERVER,LOAD_WISHLIST_FROM_SERVER,ADD_TO_CART,ADD_TO_WISHLIST,REMOVE_FROM_CARTR
-,REMOVE_FROM_WISHLIST,REMOVE_FROM_CART,WISHLIST_ERROR,CART_ERROR } from ".";
+import { LOAD_CART_FROM_SERVER,LOAD_WISHLIST_FROM_SERVER,ADD_TO_CART,ADD_TO_WISHLIST
+,REMOVE_FROM_WISHLIST,REMOVE_FROM_CART,WISHLIST_ERROR,CART_ERROR} from ".";
+import { UPDATE_QUANTITY } from "./actions";
+import { TOTAL_ITEMS_IN_CART } from "./actions";
   
   export const wishlistAndCartReducer = (state, { type, payload }) => {
     switch (type) {
@@ -12,9 +14,13 @@ import { LOAD_CART_FROM_SERVER,LOAD_WISHLIST_FROM_SERVER,ADD_TO_CART,ADD_TO_WISH
       case LOAD_CART_FROM_SERVER:
         return { ...state, cart: payload };
       case ADD_TO_CART:
-        return { ...state, wishlist: payload };
+        return { ...state, cart: payload };
       case REMOVE_FROM_CART:
-        return { ...state, wishlist: payload };
+        return { ...state, cart: payload };
+    case UPDATE_QUANTITY:
+      return { ...state, cart: payload };
+    case TOTAL_ITEMS_IN_CART:
+      return { ...state, totalItemsInCart: payload };
       case WISHLIST_ERROR:
         return { ...state, wishlistError: payload };
       case CART_ERROR:
