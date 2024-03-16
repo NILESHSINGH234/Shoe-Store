@@ -20,6 +20,8 @@ import {
         return { ...state, wishlist: payload };
       case ADD_TO_WISHLIST:
         return { ...state, wishlist: payload };
+        case APPLY_COUPON:
+          return { ...state, applyCoupon: payload };
       case REMOVE_FROM_WISHLIST:
         return { ...state, wishlist: payload };
       case LOAD_CART_FROM_SERVER:

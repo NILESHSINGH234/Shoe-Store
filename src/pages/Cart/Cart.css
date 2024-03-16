@@ -55,6 +55,62 @@
   object-fit: contain;
 }
 
+.coupon-section {
+  position: relative;
+}
+
+.coupon-modal {
+  position: absolute;
+  right: 4px;
+  margin-top: -10px;
+  width: auto;
+  min-width: 250px;
+  padding: 0.65em;
+  background-color: var(--gray-800);
+  color: var(--gray-100);
+  display: none;
+  flex-direction: column;
+  border-radius: 3px;
+}
+
+.coupon-modal.show {
+  display: flex;
+}
+
+.coupon-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+}
+
+.coupon-header span {
+  font-size: 14px;
+}
+
+.no-coupons {
+  color: var(--gray-500);
+}
+
+.applied-coupon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--green);
+}
+
+.cancel-coupon-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.coupon-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
 .card.cart-horizontal-card .card-title {
   font-size: 1rem;
 }

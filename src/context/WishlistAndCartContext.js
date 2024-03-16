@@ -13,6 +13,10 @@ const initialState = {
   totalItemsInCart: 0,
   wishlistError: "",
   cartError: "",
+  applyCoupon: {
+    code: "",
+    discount: 0,
+  },
 };
 
 const WishlistAndCartContext = createContext(initialState);
