@@ -106,7 +106,7 @@ export const products = [
     starRating: 4.4,
     cashOnDelivery: true,
     fastDelivery: true,
-    imageSrc: "https://cdn.shopify.com/s/files/1/0659/0722/8923/files/2_5879bb77-23aa-4679-ad59-fc3ed75eeb2b.jpg?v=1708934707&width=360",
+    imageSrc: "https://www.superkicks.in/cdn/shop/files/2-2024-03-04T141930.635.jpg?v=1709542261&width=360",
   },
   {
     _id: uuid(),
@@ -120,7 +120,7 @@ export const products = [
     starRating: 3.9,
     cashOnDelivery: true,
     fastDelivery: true,
-    imageSrc: "https://cdn.shopify.com/s/files/1/0659/0722/8923/products/2_d0323fb3-a3f3-4e3d-84cb-78ad9ecde19a.jpg?v=1680524003&width=360",
+    imageSrc: "https://www.superkicks.in/cdn/shop/files/2_ffd36193-ca82-4536-a376-2742998e2c0f.jpg?v=1708951959&width=360",
   },
   {
     _id: uuid(),
@@ -134,7 +134,7 @@ export const products = [
     starRating: 3.2,
     cashOnDelivery: true,
     fastDelivery: false,
-    imageSrc: "https://cdn.shopify.com/s/files/1/0659/0722/8923/files/2_580f81b8-e983-4919-95c4-bea15dfc6ebe.jpg?v=1700141992&width=360",
+    imageSrc: "https://www.superkicks.in/cdn/shop/files/2_e52d7f55-c2bb-4ec8-a4e3-8292fb614b22.jpg?v=1707209865&width=360",
   },
   {
     _id: uuid(),
@@ -148,7 +148,7 @@ export const products = [
     starRating: 4.4,
     cashOnDelivery: true,
     fastDelivery: false,
-    imageSrc: "https://cdn.shopify.com/s/files/1/0659/0722/8923/files/2_502fb89a-cb76-4c1d-9515-44703d139636.jpg?v=1692254664&width=360",
+    imageSrc: "https://www.superkicks.in/cdn/shop/files/2_517cc1d6-3080-4ba1-8f3c-f32a90a6200f.jpg?v=1706191858&width=360",
   },
   {
     _id: uuid(),
@@ -162,6 +162,6 @@ export const products = [
     starRating: 4.0,
     cashOnDelivery: true,
     fastDelivery: false,
-    imageSrc: "https://cdn.shopify.com/s/files/1/0659/0722/8923/files/FD9082-106-3.jpg?v=1704177156&width=360",
+    imageSrc: "https://www.superkicks.in/cdn/shop/files/FJ3458-160-2.jpg?v=1705930051&width=360",
   },
 ];

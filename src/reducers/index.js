@@ -1,2 +1,0 @@
-export { productReducer } from "./ProductReducer";
-
