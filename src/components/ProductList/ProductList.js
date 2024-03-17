@@ -82,7 +82,7 @@ export const ProductList = () => {
                     >
                     <div
                         className="card-header"
-                        onClick={() => navigate(`/product/${uid}`)}
+                        onClick={() => navigate(`/product/${id}`)}
                       >
                         <img src={imageSrc} alt={title} />
                       </div>
