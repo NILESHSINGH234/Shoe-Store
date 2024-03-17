@@ -113,19 +113,33 @@ export const Cart = () => {
                                   <div className="quantity-container">
                                     <span>Quantity:</span>
                                     <div className="quantity-counter">
-                                      <button
-                                        disabled={product.qty === 1}
-                                        onClick={() =>
-                                          updateQtyService(
-                                            id,
-                                            token,
-                                            "decrement",
-                                            dispatch
-                                          )
-                                        }
-                                      >
-                                        -
-                                      </button>
+                                    {product.qty === 1 ? (
+                                        <span
+                                          className="material-icons-outlined delete-icon"
+                                          onClick={() =>
+                                            deleteFromCartService(
+                                              id,
+                                              token,
+                                              dispatch
+                                            )
+                                          }
+                                        >
+                                          delete
+                                        </span>
+                                      ) : (
+                                        <button
+                                          onClick={() =>
+                                            updateQtyService(
+                                              id,
+                                              token,
+                                              "decrement",
+                                              dispatch
+                                            )
+                                          }
+                                        >
+                                          -
+                                        </button>
+                                      )}
                                       <span>{product.qty}</span>
                                       <button
                                         onClick={() =>
