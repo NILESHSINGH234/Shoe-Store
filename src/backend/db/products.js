@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "AIR MORE UPTEMPO '96 'DARK SMOKE GREY'",
+    title: "AIR MORE UPTEMPO '96 'DARK '",
     brand: "Sneakers",
     priceInMrp: 9999,
     discountInPercentage: 50,
@@ -23,7 +23,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "AIR MAX 90 GORE-TEX 'DK SMOKE GREY/SUMMIT WHITE-COOL GREY'",
+    title: "AIR MAX 90 GORE-TEX 'DK SMOKE '",
     brand: "Skateboarding Sneakers",
     priceInMrp: 6990,
     discountInPercentage: 64,
@@ -38,7 +38,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "AIR MAX 90 'NEUTRAL OLIVE/BLACK-MEDIUM OLIVE",
+    title: "AIR MAX 90 'NEUTRAL OLIVE",
     brand: "Classic Sneakers",
     priceInMrp: 3999,
     discountInPercentage: 70,
@@ -53,7 +53,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "AIR MAX 90 'NEUTRAL OLIVE/BLACK-MEDIUM OLIV",
+    title: "AIR MAX 90 'NEUTRAL OLIVE",
     brand: "Basketball Sneakers",
     priceInMrp: 44499,
     discountInPercentage: 27,
@@ -96,7 +96,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "DUNK HIGH RETRO SE 'GRAIN/BLACK-LIGHT PUMICE-PALE VANILLA'",
+    title: "DUNK HIGH RETRO SE 'GRAIN",
     brand: "Slides",
     priceInMrp: 6990,
     discountInPercentage: 64,
@@ -110,7 +110,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "CLASSIC LEATHER 'RED/CARBON BLACK/CLOUD WHITE",
+    title: "CLASSIC LEATHER 'RED/CARBON BLACK",
     brand: "Slides",
     priceInMrp: 2799,
     discountInPercentage: 39,
@@ -124,7 +124,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "BLKTOP RIDER WASHED 'ASTRO RED/TEAM REGEL RED'",
+    title: "BLKTOP RIDER WASHED 'ASTRO RED",
     brand: "Sneakers",
     priceInMrp: 3999,
     discountInPercentage: 63,
@@ -152,7 +152,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "AIR MAX 1 SE 'SUMMIT WHITE/SUMMIT WHITE-BLACK-WHITE'",
+    title: "AIR MAX 1 SE 'SUMMIT WHITE/",
     brand: "Classic Sneakers",
     priceInMrp: 3000,
     discountInPercentage: 7,
@@ -180,7 +180,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "AIR MAX 90 GORE-TEX 'DK SMOKE GREY/SUMMIT WHITE-COOL GREY'",
+    title: "AIR MAX 90 GORE-TEX 'DK SMOKE GREY",
     brand: "Skateboarding Sneakers",
     priceInMrp: 6990,
     discountInPercentage: 64,
