@@ -78,7 +78,7 @@ export const FilterSidebar = () => {
         </div>
         <hr className="divider" />
         <div className="filter-container">
-          <span className="filter-title">Brands</span>
+          <span className="filter-title">Shoe Type</span>
           <ul className="filter-list">
             {uniqueBrands &&
               uniqueBrands.map((brand, id) => {

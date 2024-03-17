@@ -19,7 +19,7 @@ export const products = [
     cashOnDelivery: true,
     fastDelivery: false,
     imageSrc:
-      "https://www.superkicks.in/products/classic-leather-hemp?_pos=10&_fid=2afa1d937&_ss=c&variant=45134045217019",
+      "https://www.superkicks.in/cdn/shop/files/2_4b4d665d-f771-4df3-bf39-1e92a8f17baf.jpg?v=1706870345&width=360",
   },
   {
     _id: uuid(),
@@ -34,7 +34,7 @@ export const products = [
     cashOnDelivery: true,
     fastDelivery: true,
     imageSrc:
-      "https://www.superkicks.in/products/air-max-90-neutral-olive-black-medium-olive?_pos=10&_fid=ce29164cc&_ss=c&variant=45238566813947",
+      "https://www.superkicks.in/cdn/shop/files/22_451e8e2c-d95e-4c67-ad75-dc55180deb47.jpg?v=1706543810&width=360",
   },
   {
     _id: uuid(),
@@ -49,7 +49,7 @@ export const products = [
     cashOnDelivery: true,
     fastDelivery: false,
     imageSrc:
-      "https://www.superkicks.in/products/blktop-rider-washed-astro-red-team-regel-red?_pos=12&_fid=e2a2dc3be&_ss=c",
+      "https://www.superkicks.in/cdn/shop/files/2_935c2dbe-f5a0-400f-b687-c6a09f4d0091.jpg?v=1705763741&width=360",
   },
   {
     _id: uuid(),
@@ -63,7 +63,7 @@ export const products = [
     starRating: 4.8,
     cashOnDelivery: false,
     fastDelivery: false,
-    imageSrc: "https://www.superkicks.in/cdn/shop/files/4-2024-03-01T190401.569.jpg?v=1709300091&width=600",
+    imageSrc: "https://www.superkicks.in/cdn/shop/files/2_eff68e20-68d7-4612-b690-d426ba099c61.jpg?v=1704802207&width=360",
   },
   {
     _id: uuid(),
@@ -78,11 +78,11 @@ export const products = [
     cashOnDelivery: false,
     fastDelivery: true,
     imageSrc:
-      "https://www.superkicks.in/products/dame-8-extply-better-scarlet-cloud-white?_pos=1&_fid=24b21ed12&_ss=c",
+      "https://www.superkicks.in/cdn/shop/files/2_1e89201c-4b7c-4c0a-8202-f9c4e6db1a4a.jpg?v=1702894085&width=360",
   },
   {
     _id: uuid(),
-    title: "DUNK HIGH RETRO SE 'GRAIN/BLACK-LIGHT PUMICE-PALE VANILLA'",
+    title: "CHUCK 70 HIGH 'WHITE'",
     brand: "Classic Sneakers",
     priceInMrp: 5999,
     discountInPercentage: 67,
@@ -92,7 +92,7 @@ export const products = [
     starRating: 4.1,
     cashOnDelivery: true,
     fastDelivery: true,
-    imageSrc: "https://www.superkicks.in/products/air-force-1-07-white-photo-blue-white?_pos=3&_fid=e3aac2386&_ss=c&variant=45165833748731",
+    imageSrc: "https://www.superkicks.in/cdn/shop/products/2_8e0b43e1-664c-4f7d-b071-695b890ea53d.jpg?v=1677498447&width=360",
   },
   {
     _id: uuid(),
@@ -106,7 +106,7 @@ export const products = [
     starRating: 4.4,
     cashOnDelivery: true,
     fastDelivery: true,
-    imageSrc: "https://www.superkicks.in/cdn/shop/files/2-2024-03-04T141930.635.jpg?v=1709542261&width=360",
+    imageSrc: "https://www.superkicks.in/cdn/shop/products/DV0486-100-5.jpg?v=1678458041&width=360",
   },
   {
     _id: uuid(),
@@ -163,5 +163,34 @@ export const products = [
     cashOnDelivery: true,
     fastDelivery: false,
     imageSrc: "https://www.superkicks.in/cdn/shop/files/FJ3458-160-2.jpg?v=1705930051&width=360",
+  },
+  {
+    _id: uuid(),
+    title: "FORUM MID 'GREEN/FTWR WHITE/CREAM WHITE'",
+    brand: "Basketball Sneakers",
+    priceInMrp: 44499,
+    discountInPercentage: 27,
+    categoryName: "Adidas",
+    inStock: 5,
+    featured: false,
+    starRating: 4.8,
+    cashOnDelivery: false,
+    fastDelivery: false,
+    imageSrc: "https://www.superkicks.in/cdn/shop/files/2_a92e5178-a896-4102-abb0-a480b9637003.jpg?v=1692015850&width=360",
+  },
+  {
+    _id: uuid(),
+    title: "AIR MAX 90 GORE-TEX 'DK SMOKE GREY/SUMMIT WHITE-COOL GREY'",
+    brand: "Skateboarding Sneakers",
+    priceInMrp: 6990,
+    discountInPercentage: 64,
+    categoryName: "Nike",
+    inStock: 12,
+    featured: false,
+    starRating: 4.6,
+    cashOnDelivery: true,
+    fastDelivery: true,
+    imageSrc:
+      "https://www.superkicks.in/cdn/shop/products/DV0486-100-5.jpg?v=1678458041&width=360",
   },
 ];
