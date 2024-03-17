@@ -11,7 +11,7 @@ import {
   CART_ERROR,
   APPLY_COUPON,
   RESET_CART,
-  RESET_WISHLIST_AND_CART,
+  CLEAR_CART, // Add this import
 } from "./actions";
   
   export const wishlistAndCartReducer = (state, { type, payload }) => {
@@ -50,6 +50,12 @@ import {
             wishlistError: "",
             cartError: "",
           };
+          case CLEAR_CART:
+            return {
+              ...state,
+              cart: [],
+              totalItemsInCart: 0,
+            };
       default:
         return state;
     }

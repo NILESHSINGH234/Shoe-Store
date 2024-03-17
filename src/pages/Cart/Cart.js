@@ -44,9 +44,13 @@ export const Cart = () => {
     totalAmountAfterDiscount,
     discount
   );
-  const handlePlaceOrder = () => {
-    clearCartService(token, dispatch);
+  const Clear = () => {
+    dispatch({ type: "CLEAR_CART" });
+
+     // Clear the cart
+    // You can add logic for placing the order here
   };
+
 
   useEffect(() => {
     if (
@@ -273,7 +277,7 @@ export const Cart = () => {
                         </div>
                       </div>
                       <div className="checkout-btn">
-                     <Link to='/order'><button className="btn btn-primary" onClick={()=>clearCartService(token,dispatch)} >PLACE ORDER</button></Link>   
+                     <Link to='/order'><button className="btn btn-primary" onClick={Clear} >PLACE ORDER</button></Link>   
                       </div>
                     </div>
                   </div>
