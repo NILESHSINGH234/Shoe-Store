@@ -14,6 +14,7 @@ import { useAuth } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import {
   addToWishlistService,
+  clearCartService,
   deleteFromCartService,
   updateQtyService,
 } from "../../services";
@@ -43,6 +44,9 @@ export const Cart = () => {
     totalAmountAfterDiscount,
     discount
   );
+  const handlePlaceOrder = () => {
+    clearCartService(token, dispatch);
+  };
 
   useEffect(() => {
     if (
@@ -269,7 +273,7 @@ export const Cart = () => {
                         </div>
                       </div>
                       <div className="checkout-btn">
-                     <Link to='/order'><button className="btn btn-primary" >PLACE ORDER</button></Link>   
+                     <Link to='/order'><button className="btn btn-primary" onClick={()=>clearCartService(token,dispatch)} >PLACE ORDER</button></Link>   
                       </div>
                     </div>
                   </div>

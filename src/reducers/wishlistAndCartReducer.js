@@ -38,7 +38,7 @@ import {
         return { ...state, wishlistError: payload };
       case CART_ERROR:
         return { ...state, cartError: payload };
-        case RESET_WISHLIST_AND_CART:
+        case RESET_CART:
           return {
             wishlist: [],
             cart: [],
