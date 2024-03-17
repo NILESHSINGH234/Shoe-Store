@@ -11,12 +11,10 @@ export const HeroBanner = () => {
         </div>
         <div className="hero-content">
           <div className="">
-            <h1 className="hero-title">Nike Puma Reebok and Adidas</h1>
+            <h1 className="hero-title">Get Premium Shoes</h1>
           </div>
           <div className="">
-            <p className="hero-description">
-              Get your Your Premium Trendy Quanlity Shoes
-            </p>
+           
           </div>
           <div className="hero-btn">
             <Link className="btn btn-primary" to="/products">

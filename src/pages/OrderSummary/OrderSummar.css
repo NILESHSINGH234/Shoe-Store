@@ -1,0 +1,25 @@
+.order-summary-section {
+    margin-top: 6rem;
+  }
+  .order-summary-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 80vh;
+    padding: 2rem;
+    text-align: center;
+    color: var(--gray-600);
+  }
+  
+  .order-success-message {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: var(--green);
+  }
+  
+  .check-icon {
+    width: 60px;
+    height: 60px;
+    color: var(--green);
+  }

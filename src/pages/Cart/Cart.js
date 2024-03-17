@@ -157,7 +157,7 @@ export const Cart = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="card-footer">
+                              <div className="card-footer main">
                                 <button
                                   className="btn btn-light btn-sm  remove-from-cart"
                                   onClick={() =>
@@ -269,7 +269,7 @@ export const Cart = () => {
                         </div>
                       </div>
                       <div className="checkout-btn">
-                        <button className="btn btn-primary">PLACE ORDER</button>
+                     <Link to='/order'><button className="btn btn-primary" >PLACE ORDER</button></Link>   
                       </div>
                     </div>
                   </div>

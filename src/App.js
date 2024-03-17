@@ -13,6 +13,7 @@ import { Navbar } from "./components";
 import { Toaster } from "react-hot-toast";
 import { SingleProduct } from "./pages";
 import { ToasterWrapper } from "./utils/ToasterWrapper";
+import { OrderSummary } from "./pages/OrderSummary/OrderSummar";
 function App() {
 
   const {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/cart" element={<Cart></Cart>}></Route>
         {!isLoggedIn && <Route path="/login" element={<Login></Login>}></Route>}
         {!isLoggedIn && <Route path="/signup" element={<Signup></Signup>}></Route>}
+        <Route path="/order" element={<OrderSummary></OrderSummary>}></Route>
         <Route path="/mock" element={<Mockman></Mockman>}></Route>
       </Routes>
     </div>

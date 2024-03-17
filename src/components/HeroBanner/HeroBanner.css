@@ -9,6 +9,7 @@
   margin-top: 4.5rem;
 }
 
+
 .hero .hero-img img {
   width: 100%;
   object-fit: cover;
@@ -24,6 +25,28 @@
 .hero-img {
   order: 1;
 }
+/* Styling for the button */
+.Link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff; /* Change the background color as needed */
+  color: #ffffff; /* Change the text color as needed */
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Link:hover {
+  background-color: #0056b3; /* Change the hover color as needed */
+}
+
+/* Margin top outside */
+.margin-top-outside {
+  margin-top: 20px; /* Change the margin as needed */
+}
+
 
 .hero-title {
   color: var(--gray-600);
@@ -48,6 +71,7 @@
     text-align: center;
   }
 }
+
 
 @media only screen and (min-width: 768px) {
   .hero {
@@ -74,7 +98,7 @@
     font-size: 0.85rem;
   }
   .hero-btn {
-    margin: 2rem 0 0 0;
+    margin: 7rem 0 0 0;
   }
 }
 

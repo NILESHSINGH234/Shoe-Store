@@ -62,7 +62,7 @@ export const Navbar = () => {
           )}
         </button>
         <Link className="navbar-brand" to="/">
-      ShoeStore
+      Shoe Store
         </Link>
       </div>
       <div className="navbar-section">
